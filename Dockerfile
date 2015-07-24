@@ -4,7 +4,7 @@ FROM totem/python-base:3.4-trusty-b2
 ADD requirements.txt /opt/requirements.txt
 RUN pip install -r /opt/requirements.txt
 
-ADD run.py /opt/mongo-connector/
+ADD . /opt/mongo-connector/
 
 WORKDIR /opt/mongo-connector
 
