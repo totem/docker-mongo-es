@@ -10,7 +10,7 @@ ES_URL = os.getenv('ES_URL', 'http://localhost:9200')
 ES_INDEXES = yaml.load(os.getenv('ES_INDEXES') or '{}')
 ES_TIMEOUT_SECONDS = int(os.getenv('ES_TIMEOUT_SECONDS', '100'))
 
-MONGO_CONNECTOR_CONFIG = 'mongo-connetor.json'
+MONGO_CONNECTOR_CONFIG = 'mongo-connector.json'
 
 DEFAULTS = {
     'es': {
@@ -25,7 +25,7 @@ DEFAULTS = {
             'password': MONGO_PASSWORD
         },
         'namespaces': {
-            'includes': MONGO_INCLUDES.split(','),
+            'include': MONGO_INCLUDES.split(','),
         },
         'timezoneAware': True,
         'docManagers': [
