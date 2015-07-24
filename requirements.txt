@@ -1,0 +1,5 @@
+mongo-connector==2.1
+elasticsearch==1.6.0
+pymongo==2.8.1
+requests
+PyYAML==3.11
