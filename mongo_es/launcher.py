@@ -1,8 +1,9 @@
+import json
 from elasticsearch import Elasticsearch
 import sys
 import mongo_connector.connector
 import yaml
-from conf.appconfig import CONFIG_LOCATION, DEFAULTS
+from conf.appconfig import CONFIG_LOCATION, DEFAULTS, MONGO_CONNECTOR_CONFIG
 from mongo_es.util import requests_with_fs, dict_merge
 
 
@@ -49,32 +50,16 @@ def update_indexes(config):
                 cl.indices.put_mapping(mapping_name, mapping, index=index)
 
 
-def create_connector_args(config):
-    args = [
-        'mongo-connector',
-        '-d', 'elastic_doc_manager',
-        '-m', config['mongo']['url'],
-        '-t', config['es']['url'],
-        '--tz-aware'
-    ]
-    includes = config['mongo'].get('includes')
-    if includes:
-        args.append('-n')
-        args.append(includes)
-
-    if config['mongo']['username']:
-        args.append('-a')
-        args.append(config['mongo']['username'])
-
-    if config['mongo']['password']:
-        args.append('-p')
-        args.append(config['mongo']['password'])
-    return args
+def create_connector_config(config, file):
+    with open(file, 'w') as fp:
+        json.dump(config['mongo-connector'], fp)
 
 
 def launch():
     config = load_config()
     update_indexes(config)
+    create_connector_config(config, MONGO_CONNECTOR_CONFIG)
     existing_args = sys.argv[1:]
-    sys.argv = create_connector_args(config) + existing_args
+    sys.argv = ['mongo-connector', '-c', MONGO_CONNECTOR_CONFIG] + \
+        existing_args
     mongo_connector.connector.main()

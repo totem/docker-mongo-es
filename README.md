@@ -39,7 +39,7 @@ include database collections events and deployments from totem database.
 ### CONFIG_LOCATION
 Optional config file location. (Defaults to blank). e.g.:  file:///tmp/config.yml  or https://my-config-server/config.yml.
 Example config file:  
-```yaml
+```
 defaults:
   index-defaults: &index-defaults
     mappings:
@@ -57,6 +57,9 @@ es:
   indexes:
     totem:
       <<: *index-defaults
-
-mongo: {}
+mongo-connector:
+  logging:
+    type: stream
 ```
+
+Note:  List of complete mongo-connector settings can be found in [mongo-connector wiki](https://github.com/10gen-labs/mongo-connector/wiki/Configuration-Options)
