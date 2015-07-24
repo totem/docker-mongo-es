@@ -25,7 +25,7 @@ DEFAULTS = {
             'password': MONGO_PASSWORD
         },
         'namespaces': {
-            'includes': MONGO_INCLUDES,
+            'includes': MONGO_INCLUDES.split(','),
         },
         'timezoneAware': True,
         'docManagers': [
