@@ -1,8 +1,8 @@
 import os
 import yaml
 
-MONGO_USERNAME = os.getenv('MONGO_USERNAME', '')
-MONGO_PASSWORD = os.getenv('MONGO_PASSWORD', '')
+MONGO_USERNAME = os.getenv('MONGO_USERNAME', None)
+MONGO_PASSWORD = os.getenv('MONGO_PASSWORD', None)
 MONGO_URL = os.getenv('MONGO_URL', 'mongodb://localhost:27017')
 MONGO_INCLUDES = os.getenv('MONGO_INCLUDES', '')
 
