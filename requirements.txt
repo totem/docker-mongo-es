@@ -1,7 +1,6 @@
-# mongo-connector==2.1
-# Use latest mongo connector (for troubleshooting issue with fatal exception)
-https://github.com/mongodb-labs/mongo-connector/archive/master.tar.gz
-elasticsearch==1.6.0
-pymongo==2.8.1
+mongo-connector==2.3.0
+elastic-doc-manager
+elasticsearch>=1.0.0,<2.0.0
+pymongo==3.2.2
 requests
 PyYAML==3.11
