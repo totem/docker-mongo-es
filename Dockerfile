@@ -8,4 +8,4 @@ ADD . /opt/mongo-connector/
 
 WORKDIR /opt/mongo-connector
 
-CMD ["/opt/mongo-connector/run.py"]
+CMD ["python3", "/opt/mongo-connector/run.py"]
