@@ -63,3 +63,6 @@ mongo-connector:
 ```
 
 Note:  List of complete mongo-connector settings can be found in [mongo-connector wiki](https://github.com/10gen-labs/mongo-connector/wiki/Configuration-Options)
+
+### LOG_VERBOSITY
+Verbosity for logging (between 0 - 3,  where 0 is ERROR,  3 is DEBUG)
