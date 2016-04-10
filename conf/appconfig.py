@@ -10,6 +10,8 @@ ES_URL = os.getenv('ES_URL', 'http://localhost:9200')
 ES_INDEXES = yaml.load(os.getenv('ES_INDEXES') or '{}')
 ES_TIMEOUT_SECONDS = int(os.getenv('ES_TIMEOUT_SECONDS', '100'))
 
+LOG_VERBOSITY = int(os.getenv('LOG_VERBOSITY', 2))
+
 MONGO_CONNECTOR_CONFIG = 'mongo-connector.json'
 
 DEFAULTS = {
@@ -38,8 +40,14 @@ DEFAULTS = {
                     }
                 }
             }
-        ]
-    }
+        ],
+        'logging': {
+            'type': 'stream'
+        },
+        'verbosity': LOG_VERBOSITY,
+        'continueOnError': True
+    },
+
 }
 
 CONFIG_LOCATION = os.getenv('CONFIG_LOCATION')

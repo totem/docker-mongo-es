@@ -1,0 +1,6 @@
+.idea
+*.iml
+*.md
+LICENSE
+*.git*
+oplog.timestamp

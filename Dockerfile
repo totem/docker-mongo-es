@@ -1,4 +1,4 @@
-FROM totem/python-base:3.4-trusty-b2
+FROM python:3.5-alpine
 
 # App dependencies
 ADD requirements.txt /opt/requirements.txt
@@ -8,4 +8,4 @@ ADD . /opt/mongo-connector/
 
 WORKDIR /opt/mongo-connector
 
-CMD ["/opt/mongo-connector/run.py"]
+CMD ["python3", "/opt/mongo-connector/run.py"]
