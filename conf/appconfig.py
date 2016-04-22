@@ -3,7 +3,14 @@ import yaml
 
 MONGO_USERNAME = os.getenv('MONGO_USERNAME', None)
 MONGO_PASSWORD = os.getenv('MONGO_PASSWORD', None)
-MONGO_URL = os.getenv('MONGO_URL', 'mongodb://localhost:27017')
+
+MONGODB_HOST = os.getenv('MONGODB_HOST', '127.0.0.1')
+MONGODB_PORT = int(os.getenv('MONGODB_PORT', '27017'))
+MONGODB_SERVERS = os.getenv('MONGODB_SERVERS') \
+                  or '{}:{}'.format(MONGODB_HOST, MONGODB_PORT)
+MONGODB_DEFAULT_URL = 'mongodb://{}'.format(MONGODB_SERVERS)
+MONGO_URL = os.getenv('MONGO_URL') or MONGODB_DEFAULT_URL
+
 MONGO_INCLUDES = os.getenv('MONGO_INCLUDES', '')
 
 ES_URL = os.getenv('ES_URL', 'http://localhost:9200')
