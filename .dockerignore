@@ -4,3 +4,5 @@
 LICENSE
 *.git*
 oplog.timestamp
+mongo-connector.json
+docker-compose.yml
