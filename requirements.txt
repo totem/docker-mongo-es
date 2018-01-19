@@ -1,4 +1,4 @@
-mongo-connector==2.3.0
+mongo-connector==2.5.1
 elastic-doc-manager
 elasticsearch>=1.0.0,<2.0.0
 pymongo==3.2.2
